@@ -5,6 +5,7 @@ namespace AptiSummit.Api.Controllers.Home
     [Route("")]
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             var model = new HomeViewModel()
