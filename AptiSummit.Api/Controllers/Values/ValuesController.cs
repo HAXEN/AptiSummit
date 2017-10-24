@@ -8,6 +8,10 @@ namespace AptiSummit.Api.Controllers.Values
     [Route("api/values")]
     public class ValuesController : Controller
     {
+        /// <summary>
+        /// List of values in the system. 20 items a page.
+        /// </summary>
+        /// <param name="index">(optional) first item to retrieve in response.</param>
         [HttpGet]
         [Produces("application/json")]
         [ProducesResponseType(typeof(ValuesListViewModel), 200)]
@@ -17,7 +21,10 @@ namespace AptiSummit.Api.Controllers.Values
             return Ok(model);
         }
 
-
+        /// <summary>
+        /// Specific value 
+        /// </summary>
+        /// <param name="id">values id</param>
         [HttpGet("{id}")]
         [Produces("application/json")]
         [ProducesResponseType(typeof(ValueItemViewModel), 200)]

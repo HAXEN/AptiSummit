@@ -1,8 +1,10 @@
-﻿using AptiSummit.Api.Commons;
+﻿using System.IO;
+using AptiSummit.Api.Commons;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.PlatformAbstractions;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 
@@ -29,6 +31,8 @@ namespace AptiSummit.Api
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new Info {Title = "AptiSummit"});
+
+                options.IncludeXmlComments(Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "AptiSummit.Api.xml"));
             });
         }
 
