@@ -1,4 +1,6 @@
-﻿namespace AptiSummit.Api.Controllers.Home
+﻿using System;
+
+namespace AptiSummit.Api.Controllers.Home
 {
     public class HomeViewModel : ViewModelBase<HomeViewModel>
     {
@@ -7,9 +9,6 @@
             return this;
         }
 
-        public override string Self()
-        {
-            return "/";
-        }
+        public override string Self() => "/";
     }
 }

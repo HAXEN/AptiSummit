@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace AptiSummit.Api
 {
@@ -10,8 +13,8 @@ namespace AptiSummit.Api
 
     public interface ILinkItem
     {
-        string Href { get; }
-        string Rel { get; }
+        [Required]string Href { get; }
+        [Required]string Rel { get; }
         string Description { get; }
     }
 
@@ -50,12 +53,12 @@ namespace AptiSummit.Api
             EnsureSelf();
             return _links;
         }
+    }
 
-        public class LinkItem : ILinkItem
-        {
-            public string Href { get; set; }
-            public string Rel { get; set; }
-            public string Description { get; set; }
-        }
+    public class LinkItem : ILinkItem
+    {
+        public string Href { get; set; }
+        public string Rel { get; set; }
+        public string Description { get; set; }
     }
 }
